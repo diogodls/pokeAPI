@@ -1,0 +1,18 @@
+.navbar {
+  width: 100%;
+  background-color: #EF5350;
+  padding: 20px;
+  display: flex;
+  height: 5vh;
+  justify-content: space-between;
+}
+
+.image {
+  height: 100%;
+  width: 90px;
+  object-fit: contain;
+}
+
+.buttonGroup {
+  width: 10%;
+}
