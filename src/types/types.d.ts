@@ -1,16 +1,16 @@
-export type PokeCards = {
+export type PokemonCards = {
   name: string;
-  img: string;
+  images: string[];
   types: string[];
   generation: string;
 }
 
-export type Poke = {
+export type Pokemon = {
   name: string;
+  images: string[];
   types: string[];
   generation: string;
   height: number;
   weight: number;
-  img: string;
 }
 
