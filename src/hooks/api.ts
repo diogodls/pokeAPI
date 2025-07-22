@@ -1,7 +1,7 @@
 import axios from "axios";
 import {POKEMON_GENERATIONS_REGIONS} from "../constants/constants.ts";
 import type {ApiPoke, PokeData, PokeSpecie} from "../types/apiTypes";
-import type {Pokemon, PokemonCards} from "../types/types";
+import type {Pokemon, PokemonCard} from "../types/types";
 
 const baseUrl = 'https://pokeapi.co/api/v2/';
 const api = axios.create({
@@ -34,11 +34,11 @@ export const getPokemonData = async (name: string): Promise<Pokemon> => {
       pokemon.sprites.back_shiny
     ],
     types: pokemon.types.map(({type}) => type.name),
-    //adicionar moves depois
+    //TODO: adicionar moves depois
   };
 }
 
-const pokeCards = (pokeData: Pokemon): PokemonCards => {
+const pokeCards = (pokeData: Pokemon): PokemonCard => {
   return {
     name: pokeData.name,
     types: pokeData.types,

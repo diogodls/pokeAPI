@@ -1,0 +1,45 @@
+.card {
+  border: 1px solid lightgray; //TODO: criar cores padrão
+  border-radius: 8px; //TODO: criar padrão pra border radius
+  width: 100%;
+  height: 100%;
+
+  .image {
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .infos {
+    border-top: 1px solid lightgray;
+    padding: 10px;
+
+    .top {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: initial;
+
+      .title {
+        margin: 0;
+        font-weight: bold;
+      }
+    }
+
+    .types {
+      display: flex;
+      gap: 10px;
+
+      .type {
+        border-radius: 50px;
+        padding: 4px 8px;
+        width: 45px;
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  }
+};

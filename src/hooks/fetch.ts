@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 
-export function useFetch(apiFn: () => Promise<any>) {
-  const [data, setData] = useState([]);
+export function useFetch<T>(apiFn: () => Promise<any>) {
+  const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<unknown>([]);
   const [loading, setLoading] = useState(false);
 
@@ -10,7 +10,7 @@ export function useFetch(apiFn: () => Promise<any>) {
       try {
         setLoading(true);
         const response = await apiFn();
-        setData(response.data.results);
+        setData(response);
       } catch (err) {
         setError(err);
       } finally {
