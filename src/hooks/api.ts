@@ -30,7 +30,7 @@ export const getPokemonData = async (name: string): Promise<Pokemon> => {
     images: [
       pokemon.sprites.front_default,
       pokemon.sprites.back_default,
-      pokemon.sprites.front_default,
+      pokemon.sprites.front_shiny,
       pokemon.sprites.back_shiny
     ],
     types: pokemon.types.map(({type}) => type.name),

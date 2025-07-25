@@ -1,8 +1,17 @@
 .card {
-  border: 1px solid lightgray; //TODO: criar cores padrão
+  border: 1px solid #DDDDDD; //TODO: criar cores padrão
   border-radius: 8px; //TODO: criar padrão pra border radius
   width: 100%;
   height: 100%;
+  color: white;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 0 1px 1px #DDDDDD;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 
   .image {
     width: 100%;

@@ -1,0 +1,84 @@
+.view {
+  display: flex;
+  gap: 20px;
+  margin: 70px; //TODO: padronizar isso pra componente/página
+  justify-content: space-evenly;
+
+  .component {
+    padding: 20px;
+    background-color: #DDDDDD70;
+    border-radius: 8px;
+  }
+
+  .images {
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+
+    .gallery {
+      :global {
+        .image-gallery-left-nav {
+          left: -20px;
+        }
+
+        .image-gallery-right-nav {
+          right: -20px;
+        }
+
+        .image-gallery-svg {
+          height: 60px;
+          width: 60px;
+          background: #242424;
+          border-radius: 50px;
+          opacity: 1;
+        }
+      }
+    }
+
+    .backButton {
+      position: absolute;
+      top: -55px;
+      left: 0;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      background-color: #DDDDDD;
+      border-radius: 8px;
+    }
+  }
+
+  .data {
+    width: fit-content;
+
+    .field {
+      display: flex;
+      flex-flow: column;
+      margin-bottom: 15px;
+
+      .fieldName {
+        font-size: 14px;
+      }
+
+      .fieldValue {
+        font-weight: bold;
+        margin: 0;
+        background: #DDDDDD30;
+        border-radius: 4px;
+        padding: 3px 6px;
+      }
+    }
+
+    .types {
+      display: flex;
+      gap: 10px;
+
+      .type {
+        border-radius: 50px;
+        padding: 4px 8px;
+        width: 45px;
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  }
+}
