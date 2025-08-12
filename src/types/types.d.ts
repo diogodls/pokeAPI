@@ -1,4 +1,5 @@
 export type PokemonCard = {
+  id: number;
   name: string;
   images: string[];
   types: string[];
@@ -6,6 +7,7 @@ export type PokemonCard = {
 }
 
 export type Pokemon = {
+  id: number;
   name: string;
   images: string[];
   types: string[];

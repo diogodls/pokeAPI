@@ -31,7 +31,7 @@ const Card = ({pokemon}: Card) => {
           </span>
         </div>
 
-        {pokemon.generation}
+        {pokemon.generation} / {pokemon.id}
       </div>
     </Link>
   );

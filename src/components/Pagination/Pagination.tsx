@@ -20,7 +20,7 @@ const Pagination = ({LIMIT, setPage}: Pagination) => {
         pageCount={pageCount}
         breakLabel={'...'}
         onPageChange={(e ) => {
-          setPage(e.selected + 1);
+          setPage(e.selected);
         }}
         marginPagesDisplayed={2}
         pageRangeDisplayed={2}

@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useState} from "react";
 import Cards from "../../components/Cards/Cards.tsx";
 import {useFetch} from "../../hooks/fetch.ts";
 import {getAllPokeCards} from "../../hooks/api.ts";

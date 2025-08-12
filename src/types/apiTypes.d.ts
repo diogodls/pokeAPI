@@ -8,6 +8,7 @@ type PokeSpecie = {
 };
 
 type PokeData = {
+  id: number;
   name: string;
   sprites: { //pokemon
     front_default: string,

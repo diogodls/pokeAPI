@@ -9,7 +9,7 @@ const api = axios.create({
 })
 
 export const getAllPokeCards = async (page: number, limit: number) => {
-  const response = await api.get(baseUrl + `pokemon?limit=${limit}&offset=${page}`).then(res => res.data.results) as ApiPoke[];
+  const response = await api.get(baseUrl + `pokemon?limit=${limit}&offset=${page * limit}`).then(res => res.data.results) as ApiPoke[];
 
   const pokeData = await Promise.all(
     response.map(async (data) => await getPokemonData(data.name))
@@ -23,6 +23,7 @@ export const getPokemonData = async (name: string): Promise<Pokemon> => {
   const pokeSpecie = await api.get(`pokemon-species/${name}`).then(res => res.data) as PokeSpecie;
 
   return {
+    id: pokemon.id,
     name: name,
     generation: POKEMON_GENERATIONS_REGIONS[pokeSpecie.generation.name as keyof typeof POKEMON_GENERATIONS_REGIONS],
     height: pokemon.height,
@@ -45,6 +46,7 @@ export const getAllPokeCount = async (): Promise<number> => {
 
 const pokeCards = (pokeData: Pokemon): PokemonCard => {
   return {
+    id: pokeData.id,
     name: pokeData.name,
     types: pokeData.types,
     images: pokeData.images,
