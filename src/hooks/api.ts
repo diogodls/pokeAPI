@@ -15,7 +15,7 @@ export const getAllPokeCards = async (page: number, limit: number) => {
     response.map(async (data) => await getPokemonData(data.name))
   );
 
-  return pokeData.map((item) => pokeCards(item))
+  return pokeData.map((item) => pokeCards(item));
 };
 
 export const getPokemonData = async (name: string): Promise<Pokemon> => {
@@ -36,6 +36,11 @@ export const getPokemonData = async (name: string): Promise<Pokemon> => {
     types: pokemon.types.map(({type}) => type.name),
     //TODO: adicionar moves depois
   };
+}
+
+export const getAllPokeCount = async (): Promise<number> => {
+  const response = await api.get('pokemon').then(res => res.data);
+  return response.count;
 }
 
 const pokeCards = (pokeData: Pokemon): PokemonCard => {
