@@ -85,3 +85,5 @@ const GalleryImage = (images: string[]): ReactImageGalleryItem[] => {
 }
 
 export default PokemonView;
+
+//TODO: colocar tagzinha para quando for a imagem do poke shiny

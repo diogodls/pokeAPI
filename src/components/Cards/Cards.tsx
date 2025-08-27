@@ -5,13 +5,13 @@ import {classNames} from "../../utils/classNames.ts";
 
 type Cards = {
   pokeCards: PokemonCard[]
-  className: string;
+  className?: string;
 }
 
 const Cards = ({pokeCards, className}: Cards) => {
 
   return (
-    <div className={classNames([styles.cards, className])}>
+    <div className={classNames([styles.cards, className ?? ''])}>
       {pokeCards.map((poke, index) => <Card pokemon={poke} key={index}/>)}
     </div>
   );

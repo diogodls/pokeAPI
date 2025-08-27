@@ -9,7 +9,7 @@ const api = axios.create({
 })
 
 export const getAllPokeCards = async (page: number, limit: number) => {
-  const response = await api.get(baseUrl + `pokemon?limit=${limit}&offset=${page * limit}`).then(res => res.data.results) as ApiPoke[];
+  const response = await api.get(`pokemon?limit=${limit}&offset=${page * limit}`).then(res => res.data.results) as ApiPoke[];
 
   const pokeData = await Promise.all(
     response.map(async (data) => await getPokemonData(data.name))
@@ -18,14 +18,14 @@ export const getAllPokeCards = async (page: number, limit: number) => {
   return pokeData.map((item) => pokeCards(item));
 };
 
-export const getPokemonData = async (name: string): Promise<Pokemon> => {
-  const pokemon = await api.get(`pokemon/${name}`).then(res => res.data) as PokeData;
-  const pokeSpecie = await api.get(`pokemon-species/${name}`).then(res => res.data) as PokeSpecie;
+export const getPokemonData = async (id: string | number): Promise<Pokemon> => {
+  const pokemon = await api.get(`pokemon/${id}`).then(res => res.data) as PokeData;
+  // const pokeSpecie = await api.get(`pokemon-species/${id}`).then(res => res.data) as PokeSpecie;
 
   return {
     id: pokemon.id,
-    name: name,
-    generation: POKEMON_GENERATIONS_REGIONS[pokeSpecie.generation.name as keyof typeof POKEMON_GENERATIONS_REGIONS],
+    name: pokemon.name,
+    generation: 'Kanto', //TODO: corrigir req de poke specie
     height: pokemon.height,
     weight: pokemon.weight,
     images: [
@@ -37,6 +37,14 @@ export const getPokemonData = async (name: string): Promise<Pokemon> => {
     types: pokemon.types.map(({type}) => type.name),
     //TODO: adicionar moves depois
   };
+}
+
+export const getFavoritePokes = async (pokeIds: number[]): Promise<any> => {
+  const pokeData = await Promise.all(
+    pokeIds.map(async (id) => await getPokemonData(id))
+  );
+
+  return pokeData.map((item) => pokeCards(item));
 }
 
 export const getAllPokeCount = async (): Promise<number> => {

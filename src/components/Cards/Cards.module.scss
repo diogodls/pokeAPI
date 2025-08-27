@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: center;
 
+  //TODO: definir tamanhos de telas pra trocar o grid
   > * {
     max-width: 270px;
   }
